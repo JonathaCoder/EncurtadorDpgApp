@@ -7,20 +7,18 @@ import { ToastContainer, toast } from "react-toastify";
 import "react-toastify/dist/ReactToastify.css";
 import { HiLink } from "react-icons/hi";
 import LinearProgress from "@mui/material/LinearProgress";
-import clipboardCopy from 'clipboard-copy';
+import clipboardCopy from "clipboard-copy";
 
 function UrlFront() {
   const [link, setLink] = useState("");
   const [todos, setTodos] = useState([]);
-  const [copie, setCopie] = useState(false);
 
   async function handeleUrl() {
     try {
-    
-     if(link.length <=0){
-      toast.error("Coloque uma URL valida")
-      return
-     }
+      if (link.length <= 0) {
+        toast.error("Coloque uma URL valida");
+        return;
+      }
       await axios.post("http://localhost:3000/api/link", {
         link: link,
         originalUrl: link,
@@ -29,34 +27,16 @@ function UrlFront() {
       setTimeout(() => {
         window.location.reload();
       }, 5000);
-      
     } catch (error) {
-      
       toast.error("Erro, Verifique os Campos");
     }
   }
-  const handleCopie = async () => {
-    try {
-      const link = todos[todos.length - 1].link;
-  
-      // Copiar para a área de transferência
-      await clipboardCopy(link);
-      setCopie(true);
-  
-      // Abrir a URL original no navegador
-      window.open(link);
-  
-      toast.success('URL Copiada');
-    } catch (err) {
-      toast.error('Erro ao copiar para a área de transferência');
-    }
-  };
+
   useEffect(() => {
     async function fetchData() {
       try {
         const response = await axios.get("http://localhost:3000/api/link");
         setTodos(response.data.links);
-        
       } catch (error) {
         console.error("Error fetching data:", error);
       }
@@ -110,31 +90,35 @@ function UrlFront() {
       </div>
 
       {todos.length === 0 ? (
-  <div>
-    <div className="Titulo">
-      <h1 className="logo-name"> Procurando URLS:</h1>
-    </div>
-    <div className="container-encurtador-two">
-      <Box sx={{ width: "100%" }}>
-        <LinearProgress />
-      </Box>
-    </div>
-  </div>
-) : (
-  <div>
-    <div className="Titulo">
-      <h1 className="logo-name">Última URL Adicionada:</h1>
-    </div>
-    <div className="container-encurtador-two">
-      <div className="icon">
-        <HiLink onClick={handleCopie}/>
-      </div>
-      <a href={todos[todos.length - 1].originalUrl} target="_blank" rel="noopener noreferrer">
-        <h3>{todos[todos.length - 1].link}</h3>
-      </a>
-    </div>
-  </div>
-)}
+        <div>
+          <div className="Titulo">
+            <h1 className="logo-name"> Procurando URLS:</h1>
+          </div>
+          <div className="container-encurtador-two">
+            <Box sx={{ width: "100%" }}>
+              <LinearProgress />
+            </Box>
+          </div>
+        </div>
+      ) : (
+        <div>
+          <div className="Titulo">
+            <h1 className="logo-name">Última URL Adicionada:</h1>
+          </div>
+          <div className="container-encurtador-two">
+            <div className="icon">
+              <HiLink />
+            </div>
+            <a
+              href={todos[todos.length - 1].originalUrl}
+              target="_blank"
+              rel="noopener noreferrer"
+            >
+              <h3>{todos[todos.length - 1].link}</h3>
+            </a>
+          </div>
+        </div>
+      )}
     </div>
   );
 }
