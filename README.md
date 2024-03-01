@@ -43,6 +43,10 @@ npm install
 npx prisma db push
 ```
 ```sh
+#Faça um pull no prisma
+npx prisma db pull
+```
+```sh
 ##configure o Prisma
 
 model LinkUrl {
