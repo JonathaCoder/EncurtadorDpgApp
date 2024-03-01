@@ -1,0 +1,39 @@
+  version: '3'
+
+  services:
+    node:
+      build: .
+      container_name: encurtador      
+      environment:
+        - NODE_ENV=production  
+        - DATABASE_URL=mysql://root:root@db:3306/inventory?connect_timeout=300         
+      depends_on:
+        - db
+      networks:
+        - encurtador-network      
+      ports:
+        - "3000:3000"
+
+    db:
+      image: mysql:latest      
+      container_name: mysql
+      restart: always
+      environment:
+        MYSQL_ROOT_PASSWORD: root
+      ports:
+        - "3306:3306"
+      volumes:
+        - ./database:/var/lib/mysql
+      networks:
+        - encurtador-network
+
+    adminer:
+      image: adminer
+      restart: always
+      ports:
+        - "8080:8080"
+      networks:
+        - encurtador-network
+
+  networks:
+    encurtador-network:

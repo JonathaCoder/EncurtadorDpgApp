@@ -1,0 +1,115 @@
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+
+}
+
+.Logo {
+  height: 6vh;
+
+}
+
+.container_logo {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  margin: 20px 0px;
+}
+
+.logo-name {
+  font-family: "Roboto Condensed", sans-serif;
+  font-size: 40px;
+}
+
+.container-encurtador {
+  border: 1px solid rgb(202, 202, 202);
+  margin: 0px 20px;
+
+}
+
+.Titulo {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  margin: 30px 0px;
+}
+
+.container-input {
+  width: 100%;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+
+}
+
+.btn {
+  color: rgb(255, 255, 255);
+  height: 55px;
+  border: none;
+  background-color: rgb(61, 61, 254);
+  cursor: pointer;
+  border-radius: 6px;
+  opacity: 50%;
+  transition: .7s;
+  margin: 20px;
+}
+
+.btn:hover {
+  opacity: 100%;
+  color: rgb(255, 255, 255);
+}
+
+button {
+  padding: 20px;
+}
+
+#outlined-basic {
+  color: black !important;
+}
+
+@media (max-width:677px) {
+  .TexTinput {
+    width: 100% !important;
+  }
+  .container-encurtador-two{
+    font-size: 11px;
+  }
+  .icon{
+    margin: 0px 20px !important;
+    font-size: 20px;
+    
+
+  }
+  .logo-name {
+    font-family: "Roboto Condensed", sans-serif;
+    font-size: 26px;
+}
+}
+
+.TexTinput {
+  width: 500px;
+}
+
+.container-encurtador-two {
+  border: 1px solid rgb(202, 202, 202);
+  margin: 30px 90px;
+  padding: 20px 0px;
+  border-radius: 10px;
+  color: rgb(56, 132, 254);
+  text-align: center;
+  font-family: "Roboto Condensed", sans-serif;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  opacity: 50%;
+}
+.container-encurtador-two:hover{
+  opacity: 100%;
+}
+.icon{
+  height: 20px;
+  margin: 0px 30px;
+  color: black;
+  cursor: pointer;
+}
