@@ -43,18 +43,30 @@ npm install
 npx prisma db push
 ```
 ```sh
+#Faça um pull no prisma
+npx prisma db pull
+```
+```sh
 ##configure o Prisma
 
 model LinkUrl {
-  id          String @id @default(uuid())
-  link        String @db.VarChar(255)
-  originalUrl String @db.VarChar(255)
+  id          Int      @id @default(autoincrement())
+  link        String   @db.VarChar(255)
+  originalUrl String   @db.Text
+  createdAt   DateTime @default(now())
 }
+
 
 ```
 ```sh
 #Configurar o Docker para o MySql
 docker run --name mysql-database -e MYSQL_ROOT_PASSWORD=secret -d -p 3306:3306 mysql:8.0
+```
+```sh
+#Configurar o Docker para subir os containers Linux
+##entrar na pasta backend
+cd BackEnd
+docker compose up -d
 ```
 ```sh
 # Execute o servidor local
