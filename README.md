@@ -20,11 +20,17 @@ O Encurtador de URL é uma aplicação simples desenvolvida para facilitar a tar
 
 <h3> Como Executar o Projeto</h3>
 <ul>
+  
   <li> 1 - Clone este repositório.</li>
+  
   <li> 2 - Instale as dependências do frontend e backend usando npm install em ambos os diretórios.</li>
+  
   <li>  3- Inicie o servidor backend com npm start no diretório backend.</li>
+  
    <li> 4- Inicie o aplicativo React com npm start no diretório frontend.</li>
+  
    <li> 5- Acesse o aplicativo no navegador usando o endereço http://localhost:3000.<li/>
+     
 </ul>
 
 
