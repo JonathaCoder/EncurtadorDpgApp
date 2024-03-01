@@ -50,10 +50,12 @@ npx prisma db pull
 ##configure o Prisma
 
 model LinkUrl {
-  id          String @id @default(uuid())
-  link        String @db.VarChar(255)
-  originalUrl String @db.VarChar(255)
+  id          Int      @id @default(autoincrement())
+  link        String   @db.VarChar(255)
+  originalUrl String   @db.Text
+  createdAt   DateTime @default(now())
 }
+
 
 ```
 ```sh
