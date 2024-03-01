@@ -7,7 +7,6 @@ import { ToastContainer, toast } from "react-toastify";
 import "react-toastify/dist/ReactToastify.css";
 import { HiLink } from "react-icons/hi";
 import LinearProgress from "@mui/material/LinearProgress";
-import clipboardCopy from "clipboard-copy";
 
 function UrlFront() {
   const [link, setLink] = useState("");
